@@ -6,7 +6,7 @@ public class Stack1 {
         arr = new int[1000];
         size = 0;
     }
-    public int[] push(int value){
+    public void push(int value){
         if (size == arr.length){
             int[] bigger = new int[size * 2];
             for (int i = 0; i < size; i++) {
@@ -16,7 +16,13 @@ public class Stack1 {
         }
         arr[size] = value;
         size++;
-        return arr;
     }
+
+    public int pop(){
+        int result =  arr[size - 1];
+        size--;
+        return result;
+    }
+
 
 }
