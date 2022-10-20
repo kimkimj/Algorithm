@@ -27,4 +27,10 @@ public class Stack02 {
         return top == 0;
     }
 
+    public int peek() {
+        if (top == 0){
+            throw new EmptyStackException();
+        }
+        return arr[top - 1];
+    }
 }
