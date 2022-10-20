@@ -28,4 +28,13 @@ class Stack02Test {
         st.push(30);
         assertEquals(30, st.pop());
     }
+
+    @Test
+    void isEmpty(){
+        Stack02 st = new Stack02();
+        assertTrue(st.isEmpty());
+        st.push(10);
+        assertFalse(st.isEmpty());
+
+    }
 }
