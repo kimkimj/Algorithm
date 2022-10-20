@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class Stack02Test {
@@ -11,7 +9,7 @@ class Stack02Test {
         System.out.println("before each");
     }
     @Test
-    @DisplayName("push가 잘되는지")
+    @DisplayName("push")
     void push() {
         Stack02 st = new Stack02();
         st.push(10);
