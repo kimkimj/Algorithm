@@ -8,11 +8,11 @@ class ParenthesisTest {
     @DisplayName("solve_return_boolean")
     void parenthesis(){
         Parenthesis p1 = new Parenthesis();
-        //assertTrue(p1.solution("()()"));
-        //assertTrue(p1.solution("(())()"));
-        //assertFalse((p1.solution(")()(")));
-        //assertFalse((p1.solution(")()(")));
-        assertFalse(p1.solution("())("));
+        assertTrue(p1.solution("()()"));
+        assertTrue(p1.solution("(())()"));
+        assertFalse((p1.solution(")()(")));
+        assertFalse((p1.solution(")()(")));
+        //assertFalse(p1.solution("())("));
 
     }
 }
