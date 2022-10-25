@@ -9,13 +9,21 @@ public class Hash {
         this.bucket = new int[size];
     }
 
-    public void insert(int key, int value){
+    public int hash(String key) {
+        int asciiSum = 0;
+        for (int i = 0; i < key.length(); i++) {
+            asciiSum += key.charAt(i);
+        }
+        return asciiSum % size;
+    }
+
+    public void insert(String key, int value){
         int hashCode = hash(key);
         bucket[hashCode] = value;
         System.out.println(key + " " + hashCode + "방에 저장");
     }
 
-    public int search(int key){
+    public int search(String key){
         return bucket[hash(key)];
     }
 }
