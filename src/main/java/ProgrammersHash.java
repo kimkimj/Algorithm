@@ -9,7 +9,7 @@ public class ProgrammersHash {
     * key가 0 (completion에 없는 참가자) 이면 그 사람 이름 return
     *
     *ERROR: 동명이인이 있고, 한사람이 완주했을 때 무조건 완주한 사람으로 처리됨
-    *REFACTOR: allParticipants의 value를 count로 사용.
+    *Fix: allParticipants의 value를 count로 사용.
     * */
 
     public static void main(String[] args) {
