@@ -11,9 +11,13 @@
                  correct[i]++;
 
     가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
-        if pattern[student] > highest
-            arraylist에 replace
-    if
+        if highest[student] > highest
+            arraylistq비우고, replace
+         if highest[student] == highest:
+            arraylist에 추가
+
+    loop에 나와서 arraylist -> array
+    return array
  */
 
 
