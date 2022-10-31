@@ -1,22 +1,4 @@
-/*
-    2차원 배열: 찍는 패턴을  각각의 배열에 저장
-    pointer하나
-    correct[]: 학생들의 맞힌 개수
-    highest: 가장 높은 점수
-    arraylist: 가장 높은 점수를 받은 학생
-
-    for loop: 학생 수
-        for loop: 질문 개수
-            if answer[j] == patter[student(바깥 쪽 loop)][pointer]
-                 correct[i]++;
-
-    가장 높은 점수를 받은 사람이 여럿일 경우, return하는 값을 오름차순 정렬해주세요.
-        if correct[student] > highestScore
-            update highestScore
-
-    loop에 나와서 arraylist -> array
-    return array
- */
+// changed: pointer update와 필요없는데 있어서 answers배열과 혼동
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +10,6 @@ public class Programmers_MathStudents {
         System.out.println(Arrays.toString(result));
     }
     public static int[] solution(int[] answers) {
-        int[] answer = {};
         int[][] guessingPattern = {{1, 2, 3, 4, 5}, { 2, 1, 2, 3, 2, 4, 2, 5}, {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}};
         int[] correct = new int[3];
         int highestScore = 0;
@@ -39,19 +20,20 @@ public class Programmers_MathStudents {
                 if (pointer == guessingPattern[student].length){
                     pointer = 0;
                 }
-                if(answer[question] == guessingPattern[student][pointer]){
+                if(answers[question] == guessingPattern[student][pointer]){
                     correct[student]++;
                     if (correct[student] > highestScore){
                         highestScore = correct[student];
                     }
                 }
+                pointer++;
             }
         }
 
         ArrayList<Integer> studentWithHighest = new ArrayList<>();
         for (int i = 0; i <3; i++) {
             if (correct[i] == highestScore){
-                studentWithHighest.add(i);
+                studentWithHighest.add(i + 1);
             }
         }
         int[] result = studentWithHighest.stream().mapToInt(i -> i).toArray();
