@@ -21,4 +21,15 @@ public class HarshadNumber {
         return num % sum == 0;
     }
 
+    // while loop를 사용한 풀이
+    public static boolean solution2(int num){
+        int temp = num;
+        int sum = 0;
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        return num % sum == 0;
+    }
+
 }
