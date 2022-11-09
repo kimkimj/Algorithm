@@ -41,7 +41,6 @@ public class SelectionSort {
             arr[maxIndex] = temp;
         }
         return arr;
-
     }
     
 }
