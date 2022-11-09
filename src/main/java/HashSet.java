@@ -2,7 +2,7 @@
     포켓몬의 개수 / 2 한 수가 unique numbers 보다 작다면, 포캣몬개수를 return
     n/2 < unique numbers, return n/2
     n/2 >= unique numbers, return unique numbers
- */
+
 
 import java.util.*;
 
@@ -14,7 +14,7 @@ public class HashSet {
     }
 
     public static int solution(int[] nums) {
-        Set<Integer> set = new HashSet();
+        //Set<Integer> set = new HashSet();
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
@@ -27,3 +27,5 @@ public class HashSet {
         }
     }
 }
+
+*/

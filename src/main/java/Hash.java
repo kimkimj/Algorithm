@@ -1,12 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.hash;
 
 public class Hash {
+
+    class Node {
+        private String key;
+        private Integer value;
+
+        public Node(String key, Integer value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+    }
+
     private int size = 1000;
-    private int[] bucket = new int[size];
+    //private int[] table = new int[size];
+    // Array of List<Node>
+    private List<Node>[] table = new List[size];
 
     public Hash(int size){
         this.size = size;
-        this.bucket = new int[size];
+        //this.table = new int[size];
     }
 
     public int hash(String key) {
@@ -17,13 +41,22 @@ public class Hash {
         return asciiSum % size;
     }
 
-    public void insert(String key, int value){
+    public void insert(String key, Integer value){
         int hashCode = hash(key);
-        bucket[hashCode] = value;
-        System.out.println(key + " " + hashCode + "방에 저장");
+        if (table[hashCode] == null) {
+            table[hashCode] = new ArrayList<>();
+        }
+        table[hashCode].add(new Node(key, value));
     }
 
-    public int search(String key){
-        return bucket[hash(key)];
+    public Integer get(String key) {
+        List<Node> nodes = this.table[hash(key)];
+        for (Node node : nodes) {
+            if (key.equals(node.getKey())) {
+                return node.value;
+            }
+        }
+        return null;
     }
+
 }

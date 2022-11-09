@@ -57,6 +57,5 @@ public class DivideAndSort {
             }
             return result;
         }
-
     }
 }
