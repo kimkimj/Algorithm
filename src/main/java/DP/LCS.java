@@ -1,3 +1,5 @@
+package DP;
+
 public class LCS {
     public static void main(String[] args) {
         String s1 = "AAAEEDD";
@@ -6,7 +8,7 @@ public class LCS {
         System.out.println(lcs(s1, s2));
     }
 
-    // DP를 이용한 LCS
+    // DP를 이용한 DP.LCS
     // 어느쪽이 더 길어도 상관이 없다
     public static String lcs(String s1, String s2) {
         int[][] memo = new int[s1.length() + 1][s2.length() + 1];
