@@ -20,7 +20,7 @@ public class BiggestNumber {
         eg. e vs. 30: if the seocnd digit is zero, the smaller number is taken
 
      */
-    public static String biggestNumber(int[] arr) {
+    public static void biggestNumber(int[] arr) {
         Arrays.sort(arr);
         for (int i = 0; i < arr.length; i++) {
 
