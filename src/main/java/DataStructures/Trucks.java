@@ -40,7 +40,7 @@ public class Trucks {
                 if (timeElapsed[i] < bridge_length) { // if the truck is still crossing the bridge
                     timeElapsed[i]++;
 
-                } else { // the truck has crossed the bridge and another truck can be checked for boarding the bridge
+                } else { // a truck has crossed the bridge and another truck can be checked for boarding the bridge
                     currentWeight -= truck_weights[frontPointer];
                     frontPointer++;
                     num_trucks_on_road--;
@@ -48,8 +48,8 @@ public class Trucks {
             }
 
             // check if another truck can go on the road
-            // is the current backPointer at the end of the array?
-            // will adding another truck outweigh the weight limit?
+            // is the current backPointer at the end of the array and will adding 1 to the backpointer cause a null pointer exception?
+            // will adding another truck exceed the weight limit?
             if (backPointer + 1 < truck_weights.length &&
                     num_trucks_on_road < bridge_length) {
                 if (currentWeight + truck_weights[backPointer + 1] <= weight) {
