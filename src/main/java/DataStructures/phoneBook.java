@@ -2,6 +2,8 @@ package DataStructures;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 public class phoneBook {
     public static void main(String[] args) {
@@ -16,13 +18,16 @@ public class phoneBook {
     }
 
     public static boolean solution(String[] phone_book) {
-        if (phone_book.length == 1) {
-            return true;
+
+        Set<String> set = new HashSet<>();
+
+        for (int i = 0; i < phone_book.length; i++) {
+            set.add(phone_book[i]);
         }
-        Arrays.sort(phone_book, Comparator.comparingInt(String::length));
-        for (int i = 0; i <phone_book.length -1; i++) {
-            for (int j = i + 1; j < phone_book.length; j++) {
-                if (phone_book[j].indexOf(phone_book[i]) != -1) {
+
+        for (String number: set) {
+            for (int i = 0; i < number.length(); i++) {
+                if (set.contains(number.substring(0, i))) {
                     return false;
                 }
             }
