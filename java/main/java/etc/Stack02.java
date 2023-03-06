@@ -1,3 +1,5 @@
+package etc;
+
 import java.util.EmptyStackException;
 
 public class Stack02 {

@@ -16,10 +16,18 @@ public class bestAlbum {
 
 
         for (int i = 0; i < genres.length; i++) {
+
             if (map.containsKey(genres[i])) {
+                for (String key: genreList.keySet()) {
+                    System.out.println("key: " + key);
+                    System.out.println("value" + genreList.get(key).getName());
+                }
+
                 System.out.println("Genre: " + genres[i]);
                 System.out.println(genreList.get(genres[i]).getName());
-                genreList.get(genres[i]).addSong();
+                if (genres[i].equals("classic")) {
+                    genreList.get("classic").addSong();
+                }
                 System.out.println("added Genre: " + genreList.get(genres[i]).getName());
 
                 List<Integer> songs = map.get(genres[i]);
@@ -38,12 +46,19 @@ public class bestAlbum {
                 map.put(genres[i], songs);
 
             } else {
-                genreList.put(genres[i], new Genre(genres[i], 1));
+                Genre g = new Genre(genres[i], 1);
+                System.out.println(g.getName());
+                genreList.put(genres[i], g);
                 //System.out.println(genreList.get(genres[i]).getName());
                 System.out.println("Created new Genre named: " + genreList.get(genres[i]).getName());
                 List<Integer> ls = new ArrayList<>();
                 ls.add(i);
                 map.put(genres[i], ls);
+                for (String key: genreList.keySet()) {
+                    System.out.println("key: " + key);
+                    System.out.println("value" + genreList.get(key).getName());
+                }
+
             }
         }
         System.out.println(genreList.keySet());
@@ -98,6 +113,13 @@ public class bestAlbum {
 
         public String getName(){
             return this.name;
+        }
+        public int getNumSongs() {
+            return this.getNumSongs();
+        }
+
+        public void setNumSongs(int num){
+            numSongs = num;
         }
 
         public void addSong() {
