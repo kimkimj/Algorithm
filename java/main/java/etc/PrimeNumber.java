@@ -1,4 +1,4 @@
-// 1 is not a prime number
+package etc;// 1 is not a prime number
 // 2, 3, 5, 7 are prime numbers and should not be excluded by the staement if (n % (2, 3, 5, 7) == 0): pirimeNumber = false
 
 import java.util.Arrays;
