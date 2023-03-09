@@ -1,27 +1,28 @@
-from queue import PriorityQueue
+import heapq
 def main():
-    scoville = [1, 2, 3, 9, 10, 12]
-    k = 7
+    scoville = [1, 2, 3]
+    k = 11
     print(solution(scoville, k))
 
 
 def solution(scoville, K):
-    que = PriorityQueue()
-    for i in range(len(scoville)):
-        que.put(scoville[i])
+    heapq.heapify(scoville)
 
     answer = 0
-    num = 0
-    for i in range(len(scoville) - 1):
-        num = que.get()
+
+    while len(scoville) != 1:
+        num = heapq.heappop(scoville)
         if num < K:
-            num += que.get() * 2
+            num += heapq.heappop(scoville) * 2
             answer += 1
-            que.put(num)
+            heapq.heappush(scoville, num)
         else:
             return answer
 
-    return -1
+    # 이 코드를 더하기 전까지는 heapq의 마지막 요소는 검사하지 않았기 때문에 마지막 요소로서 모든 요소가 k이상이 되어도 -1을 반환했다
+    if scoville[0] < K:
+        return -1
+    return answer
 
 if __name__ == '__main__':
     main()
