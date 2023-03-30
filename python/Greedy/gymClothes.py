@@ -7,6 +7,7 @@ def solution(n, lost, reserve):
 
     newLost = []
     # 체육복을 잃어버렸지만 여유분이 있을 때
+    lost.sort()
     for index in lost:
         if arr[index - 1]:
             arr[index - 1] = False
@@ -24,8 +25,8 @@ def solution(n, lost, reserve):
     print(count)
 
 
-n = 4
-lost = [1, 2, 3]
-reserve = [2, 3, 4]
+n = 5
+lost = [4, 2]
+reserve = [3, 5]
 
 solution(n ,lost ,reserve)
