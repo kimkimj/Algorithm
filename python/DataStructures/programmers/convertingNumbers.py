@@ -11,7 +11,7 @@ def solution(x, y, n):
 
     if answer == math.inf:
         while n <= y:
-
+            1 + 1
 
     if answer != math.inf:
         return answer

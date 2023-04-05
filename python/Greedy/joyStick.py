@@ -6,6 +6,9 @@ def solution(name):
         count = ord(name[i])
         k = min(count - 65, 90 - count + 1)
         answer += k
+        if name[i] == 'A':
+            a_count += 1
+
 
     next_a_index = name.find('A')
     if next_a_index != -1:
