@@ -1,25 +1,40 @@
-def merge_sort(arr):
-    if len(arr) < 2:
-        return arr // 2
-    mid = len(arr) // 2
-    left_half, count = merge_sort(arr[:mid])
-    right_half, count = merge_sort(arr[mid:])
+def merge_sort(L):
+    if len(L) == 1:
+        return L
 
-    merged_arr = []
-    l = h = 0
-    while l < len(left_half) and h < len(right_half):
-        saved = 0
-        if left_half[l] < right_half[h]:
-            saved = left_half[l]
-            merged_arr.append(left_half[l])
-            l += 1
+    mid = (len(L)+1)//2
+
+    left = merge_sort(L[:mid])
+    right = merge_sort(L[mid:])
+
+    i,j = 0,0
+    L2 = []
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            L2.append(left[i])
+            ans.append(left[i])
+            i+=1
         else:
-            saved = right_half[h]
-            merged_arr.append(right_half[h])
-            h += 1
+            L2.append(right[j])
+            ans.append(right[j])
+            j+=1
+    while i < len(left):
+        L2.append(left[i])
+        ans.append(left[i])
+        i+=1
+    while j < len(right):
+        L2.append(right[j])
+        ans.append(right[j])
+        j+=1
 
-    merged_arr += left_half[l:]
-    merged_arr += right_half[h:]
-    return merged_arr, count
+    return L2
 
-merge_sort([4, 5, 1, 3, 2])
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+ans = []
+merge_sort(a)
+
+if len(ans) >= k:
+    print(ans[k-1])
+else:
+    print(-1)
