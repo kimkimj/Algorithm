@@ -1,44 +1,53 @@
+from sys import stdin
+from collections import deque
 
+input = stdin.readline
 n = int(input())
-arr = []
-for i in range(n):
-    arr.append(list(map(int, input())))
-
-graphs = [[0] * n] * n
+homes = [list(map(int, list(input().strip()))) for _ in range(n)]
 counts = [0]
+visited = [[0] * n for _ in range(n)]
 
-for i in range(n):
-    for j in range(n):
-        graph_num = 0
-        current = arr[i][j]
-        if current == 1:
-            if (i - 1 >= 0 and arr[i - 1][j] == 1):
-                # 윗칸과 연결 (exisitng node)
-                graph_num = graphs[i - 1][j]
-                counts[graph_num] += 1
+def bfs():
+    vil_num = 1
+    queue = deque()
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
+    # (-1, 0) left, (1, 0) right, (0, -1) above, (0, 1) below
 
-            elif j - 1 >= 0 and arr[i][j - 1] == 1:
-                #왼쪽 칸과 연결 (existing node)
-                graph_num = graphs[i][j + 1]
-                counts[graph_num] += 1
+    for i in range(n):
+        for j in range(n):
+            # if the apartment has not been visited
+            if homes[i][j] != 0 and visited[i][j] == 0:
+                cnt = 0
+                queue.append([i][j])
+                visited[i][j] = vil_num
+                while queue:
+                    x, y = queue.popleft()
 
-            elif j - 1 >= 0 and arr[i][j - 1] == 1:
-                # 위에 동과 연결되어 있다 (existing node)
-                graph_num = graphs[i][j - 1]
-                counts[graph_num] += 1
+                    for k in range(4):
+                        nx = x + dx[k]
+                        ny = y + dy[k]
 
-            elif (i + 1 < len(arr) and arr[i + 1][j] == 1) \
-                    or (j + 1 < len(arr[i]) and arr[i][j + 1] == 1):
-                # 오른쪽이나 아랫칸과 연결되어 있음 (unexplored)
-                # 새로운 동
-                graph_num = len(counts)
-                counts.append(1)
-            else:
-                # isolated
-                graph_num = len(counts)
-                counts.append(1)
+                        # if the neighboring cell has not been visited and
+                        # there is an apartment at the location
+                        if 0 <= nx < n and 0 <= ny < n and \
+                                visited[nx][ny] == 0 and homes[nx][ny] != 0:
 
-            graphs[current] = graph_num
+                            # the neighboring apartment has the same vil_num as the current
+                            visited[nx][ny] = vil_num
+                            queue.append([nx, ny])
+                            cnt += 1
 
-print(len(counts) - 1)
-print(*sorted(counts))
+                    counts.append(cnt)
+                    vil_num += 1
+    return vil_num - 1
+
+vil_num = bfs()
+counts.sort()
+print(vil_num)
+print(*counts[1:])
+
+
+
+
+
