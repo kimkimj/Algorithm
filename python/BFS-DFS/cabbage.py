@@ -1,40 +1,37 @@
-from collections import deque
 
-dx = [0, 0, 1, -1]
-dy = [1, -1, 0, 0]
+delta = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
 n = int(input())
 
 for i in range(n):
-    col, row, v = map(int, input().split())
-
-    farm = [[0] * col for _ in range(row)]
-    visited = [[0] * col for _ in range(row)]
-    for _ in range(v):
+    columns, rows, v = map(int, input().split())
+    farm = [[0] * columns for _ in range(rows)]
+    for j in range(v):
         x, y = map(int, input().split())
         farm[y][x] = 1
 
-    queue = deque()
+    visited = [[0] * columns for _ in range(rows)]
+    stack = []
     count = 0
-
-    for r in range(row):
-        for c in range(col):
+    for r in range(rows):
+        for c in range(columns):
             if farm[r][c] == 1 and visited[r][c] == 0:
-                queue.append((c, r)) # c = x, r = y
+                stack.append((r, c))
                 visited[r][c] = 1
                 count += 1
 
-                while queue:
-                    x, y = queue.popleft()
+                while stack:
+                    current_r, current_c = stack.pop()
 
-                    for k in range(4):
-                        nx = x + dx[k]
-                        ny = y + dy[k]
+                    for dc, dr in delta:
+                        nr = current_r + dr
+                        nc = current_c + dc
 
-                        if 0 <= nx < col and 0 <= ny < row and \
-                            farm[ny][nx] == 1 and visited[ny][nx] == 0:
-
-                            visited[ny][nx] = 1
-                            queue.append((nx, ny))
+                        if 0 <= nr < rows and 0 <= nc < columns and \
+                                farm[nr][nc] == 1 and visited[nr][nc] == 0:
+                            stack.append((nr, nc))
+                            visited[nr][nc] = 1
     print(count)
+
+
 
