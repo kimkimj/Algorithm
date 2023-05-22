@@ -1,18 +1,17 @@
-def is_prime(num):
-    if num == 1:
-        return False
-    divisor = [2, 3, 5, 7]
-    for i in range(len(divisor)):
-        if num != divisor[i] and num % divisor[i] == 0:
-            return False
-    return True
-def solution(n):
-    count = 0
-    for i in range(1, n + 1):
-        if is_prime(i):
-            count += 1
-    return count
 
-print(solution(11))
+def solution(n):
+    # 2부터 n까지의 수가 포함된 set
+    numbers = set(range(2, n + 1))
+
+    # iterate through every number in the set
+    for i in range(2, n + 1):
+        if i in numbers:
+            numbers -= set(range(2 * i, n + 2, i))
+    return len(numbers)
+
+
+
+print(solution(5))
 
 # https://www.acmicpc.net/board/view/39203
+# https://hwan-hobby.tistory.com/108
