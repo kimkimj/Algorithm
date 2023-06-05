@@ -28,11 +28,11 @@ def solution(park, routes):
                         if park[current_r - j][current_c] == 'X':
                             dr = 0
                             break
-                
-                for j in range(dr):#what if dr is negative??
-                    if park[current_r + j][current_c] == 'X':
-                        dr = 0
-                        break
+                else:
+                    for j in range(dr):#what if dr is negative??
+                        if park[current_r + j][current_c] == 'X':
+                            dr = 0
+                            break
                 current_r += dr
 
             else: # dc != 0
