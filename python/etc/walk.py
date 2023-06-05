@@ -23,14 +23,23 @@ def solution(park, routes):
         if 0 <= nr < len(park) and 0 <= nc < len(park[0]) \
                 and park[nr][nc] == 'O':
             if dr != 0:
-                for j in range(dr):
+                if dr < 0:
+                    for j in range(abs(dr)):
+                        if park[current_r - j][current_c] == 'X':
+                            dr = 0
+                            break
+                
+                for j in range(dr):#what if dr is negative??
                     if park[current_r + j][current_c] == 'X':
                         dr = 0
                         break
                 current_r += dr
 
             else: # dc != 0
-                horizontal_path = park[current_r][current_c: nc + 1]
+                if nc < current_c:
+                    horizontal_path = park[current_r][nc: current_c + 1]
+                else:
+                    horizontal_path = park[current_r][current_c: nc + 1]
                 if horizontal_path.find('X') == -1:
                     current_c = nc
     return [current_r, current_c]
@@ -38,3 +47,6 @@ def solution(park, routes):
 park = ["OSO","OOO","OXO","OOO"]
 routes = ["E 2","S 3","W 1"]
 print(solution(park, routes))
+
+# had not considered the case where dr and dc are negative and had to move the the left
+# where values are smaller than the currrent
