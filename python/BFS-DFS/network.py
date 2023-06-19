@@ -3,15 +3,10 @@ def solution(n, computers):
 
     graph = [[] for _ in range(n)]
 
-    for row in range(len(computers)):
-        for col in range(len(computers[0])):
-            if computers[row][col] == 1 and row != col:
-                graph[row].append(col)
-
     que = deque()
     visited = [0] * n
     count = 0
-    for i in range(len(graph)):
+    for i in range(len(computers)):
         if visited[i] == 0:
             count += 1
             que.append(i)
@@ -19,10 +14,10 @@ def solution(n, computers):
 
             while que:
                 current = que.popleft()
-                for neighbor in graph[current]:
-                    if visited[neighbor] == 0:
-                        visited[neighbor] = 1
-                        que.append(neighbor)
+                for j in range(len(computers[0])):
+                    if computers[current][j] == 1 and visited[j] == 0:
+                        visited[j] = 1
+                        que.append(j)
 
     return count
 
