@@ -7,6 +7,6 @@ def solution(n):
 
 print(solution(78))
 
+
 # str(bin(n)[2:]).count('1')
 # str로 변환할 필요 없이 bin(n).count('1')
-#
