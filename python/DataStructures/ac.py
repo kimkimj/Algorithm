@@ -5,32 +5,37 @@
 from collections import deque
 
 n = int(input())
-
-answer = []
-for i in range(n):
-    actions = list(input().replace('RR', ''))
+for _ in range(n):
+    actions = input()
     length = int(input())
-    arr = []
-    if length > 2:
-        arr = deque(list(input()[1:-1].split(',')))
+
+    if length == 0:
+        arr = deque()
     else:
-        input()
-    reverse = False
-    for action in actions:
-        if len(arr) == 0:
-            arr = "error"
-            break
-        if action == 'R':
-            reverse = not reverse
+        arr = deque(input()[1:-1].split(','))
+
+    reverse = -1 # negative means not reversed
+    error = False
+
+    for a in actions:
+        if a == 'R':
+            reverse *= -1
+
         else:
-            if reverse:
+            if not arr:
+                error = True
+                break
+
+            if reverse == 1:
                 arr.pop()
             else:
                 arr.popleft()
 
-    if arr == "error":
+    if error:
         print("error")
     else:
-        if reverse:
+        if reverse == 1:
             arr.reverse()
-        print('[' + ','.join(arr) + ']')
+
+        print("[" + ','.join(arr) + "]")
+
