@@ -10,7 +10,9 @@ for _ in range(n):
     length = int(input())
 
     if length == 0:
-        input() # 이걸 안해주면 lenght = 0일때 input을 받지 않기 때문에 input을 process할 때 밀리게 된다 -> value error
+        input() # 이걸 안해주면 length = 0일때 input을 받지 않기 때문에
+                # 다음 test case에서 input을 process할 때 밀리게 된다 -> value error
+                # 예제에서는 length = 0인 case가 맨 마지막에 나왔기 때문에 문제가 없었던 것
         arr = deque()
     else:
         arr = deque(input()[1:-1].split(','))
