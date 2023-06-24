@@ -1,15 +1,17 @@
-import sys
-input = sys.stdin.readline
+str = input()
+explosion = input()
+stack = []
 
-S = input().strip()
-del_S = list(input().strip())
-l = len(del_S)
-last_word = del_S[-1]
-answer = []
-for i in S:
-    answer.append(i)
-    if i == last_word and answer[-l:] == del_S: # 폭발문자열을 찾은 경우
-        for _ in range(l):
-            answer.pop()
+for i in range(len(str)):
+    stack.append(str[i])
+    if stack[-1] == explosion[-1]:
+        length = len(explosion)
 
-print(''.join(answer)) if answer else print("FRULA")
+        #while ''.join(stack[-length:]) == explosion: #while loop로 안해도 된다
+        if ''.join(stack[-length:]) == explosion:
+            for _ in range(length):
+                stack.pop()
+if not stack:
+    print("FRULA")
+else:
+    print(''.join(stack))
