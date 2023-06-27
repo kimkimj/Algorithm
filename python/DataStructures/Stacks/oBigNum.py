@@ -1,21 +1,15 @@
-# 백준 오큰수
 import sys
-import heapq
 
 input = sys.stdin.readline
 
 n = int(input())
 arr = list(map(int, input().split()))
+stack = []
 result = [-1] * n
-dq = []
 
 for i in range(n):
-    while len(dq) > 0 and arr[dq[0][1]] < arr[i]:
-        idx = heapq.heappop(dq)[1]
-        result[idx] = arr[i]
+    while stack and arr[stack[-1]] < arr[i]:
+        result[stack.pop()] = arr[i]
+    stack.append(i)
 
-    heapq.heappush(dq, (arr[i], i))
-
-print(' '.join(map(str, result)))
-
-
+print(*result)
