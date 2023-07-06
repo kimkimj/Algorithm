@@ -1,32 +1,27 @@
-from collections import deque, defaultdict
-
-def dfs(graph):
-    stack = deque()
-    stack.append("ICN")
-    path = []
-
-    while stack:
-        start = stack.pop()
-        # 더 이상 해당 도시에서 춟발하는 항공권이 없을 때
-        if start not in graph or not graph[start]:
-            path.append(start)
-
-        else:
-            # 해당 도시를 다시 stack에 넣고 도착지도 stack에 추가
-            stack.append(start)
-            stack.append(graph[start].pop)
-
-    # path를 reverse해서 반환
-    return path[::-1]
-
+from collections import defaultdict
 def solution(tickets):
+    path = []
     graph = defaultdict(list)
+
+    # graph[시작지] - 도착지
     for start, end in tickets:
         graph[start].append(end)
 
-    for start in graph.keys():
-        graph[start].sort(reverse = True)
+    # 도착점 리스트 역순 정렬
+    for airport in graph.keys():
+        graph[airport].sort(reverse = True)
 
-    return dfs(graph)
+    stack = ["ICN"]
 
-# https://gurumee92.tistory.com/165
+    #DFS
+    while stack:
+        current = stack.pop()
+        # current가 시작지인 티켓이 없거나 current를 시작점으로 하는 티켓이 없는 경우
+        if current not in graph or not graph[current]:
+            path.append(current)
+        else:
+            stack.append(current)
+            stack.append(graph[current].pop())
+
+    # path를 뒤집어서 반환
+    return path[::-1]
