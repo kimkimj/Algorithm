@@ -1,25 +1,25 @@
 def solution(name):
-    answer = 0
-    a_count = 0
+    count = 0
 
-    for i in range(len(name)):
-        count = ord(name[i])
-        k = min(count - 65, 90 - count + 1)
-        answer += k
-        if name[i] == 'A':
-            a_count += 1
+    # 좌에서 우로 이동
+    cursor = len(name) - 1
 
+    for i, char in enumerate(name):
+        # 해당 알파벳 최소값
+        count += min(ord(char) - ord('A'), ord('Z') - ord(char) + 1)
 
-    next_a_index = name.find('A')
-    if next_a_index != -1:
-        while name[next_a_index] == 'A':
-            a_count += 1
-            next_a_index += 1
-    if a_count == 1 and name.find('A') == 0:
-        a_count = 0
-    answer += len(name) -1 - a_count
+        # 해당 알파벳 다음부터 연속된 A 문자열 찾기
+        next = i + 1
+        while next < len(name) and name[next] == 'A':
+            next += 1
 
-    print(answer)
+        # '왼쪽에서 오른쪽으로 이동', '연속된 A의 왼쪽 시작', '연속된 A의 오른쪽 시작'
+        # 중에서 최솟값이 가장 효율적인 이동 횟수
+        cursor = min([cursor, i * 2 + (len(name) - next), i + 2 * (len(name) - next)])
 
-name = "JAN"
-solution(name)
+    return count + cursor
+
+str = 'JAN'
+print(solution(str))
+
+# https://aiday.tistory.com/120#%ED%95%B4%EA%B2%B0%20%EA%B3%BC%EC%A0%95-1
