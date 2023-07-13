@@ -1,30 +1,23 @@
-import sys
-input = sys.stdin.readline().rstrip
-def binary_search(arr, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
+num_tteok, min_height = 4, 6
+arr = [19, 15, 10, 17]
 
-        if arr[mid] == target:
-            return mid
+start = 0
+end = max(arr)
 
-        elif arr[mid] > target:
-            end = mid - 1
-
-        else:
-            start = mid + 1
-
-    return None
-
-n = int(input())
-arr = list(map(int, input().split()))
-arr.sort()
-
-m = int(input())
-req = list(map(int, input().split()))
-
-for num in arr:
-    result = binary_search(arr, num, 0, len(arr) - 1)
-    if result == None:
-        print("No", end =' ')
+result = 0
+while start <= end:
+    total = 0
+    mid = (start + end) // 2
+    for h in arr:
+        if h > mid:
+            total += h - mid
+    if total > min_height:
+        start = mid + 1
     else:
-        print("Yes", end = ' ')
+        end = mid - 1
+        result = mid
+print(result)
+
+
+
+
