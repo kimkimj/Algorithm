@@ -1,15 +1,20 @@
 n = int(input())
-count = 0
-while n > 1:
-    if n % 5 == 0:
-        n = n // 5
-    elif n % 3 == 0:
-        n = n // 3
-    elif n % 2 == 0:
-        n = n // 2
-    else:
-        n -= 1
 
-    count += 1
+d = [0] * 3001
 
-print(count)
+# 1은 0
+for i in range(2, n + 1):
+    # 우선 2, 3, 5 아무것도 나누어지지 않는 경우에는 i의 인덱스를 1 줄여줍니다. (횟수는 +1)
+    d[i] = d[i - 1] + 1
+
+    if i % 2 == 0:
+        d[i] = min(d[i], d[i // 2] + 1)
+
+    if i % 3 == 0:
+        d[i] = min(d[i], d[i // 3] + 1)
+
+    if i % 5 == 0:
+        d[i] = min(d[i], d[i // 5] + 1)
+
+print(d[n])
+
