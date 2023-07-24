@@ -1,20 +1,13 @@
-from collections import deque
 def solution(elements):
-    answer = []
-    que = deque([])
-    for length in range(1, len(elements) + 1):
-        sum = 0
+    sum_unique = set()
+    # 성분 개수
+    for n in range(len(elements)):
+        # 시작점
         for i in range(len(elements)):
-            end = i + length
-            if end >= len(elements):
-                sum += sum(elements[:len(elements) - end])
-            sum += elements[i]
-            que.append(elements[i])
-            if len(que) > length:
-                sum -=  que.popleft()
-            answer.append(sum)
-    return set(answer)
-
-elements = [7,9,1,1,4]
-print(solution(elements))
-
+            # 배열의 길이 초과할 경우
+            if n + i > len(elements):
+                e_sum = sum(elements[i:]) + sum(elements[:i + n - len(elements)])
+            else:
+                e_sum = sum(elements[i:i + n])
+            sum_unique.add(e_sum)
+    return len(sum_unique)
