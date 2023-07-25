@@ -2,22 +2,44 @@ T = int(input())
 for _ in range(T):
     n, m = map(int, input().split())
     arr = list(map(int, input().split()))
-    dp = [0] * (n * m)
 
-    for i in range(n * m):
-        if i % m == 0:
-            dp[i] = arr[i]
-        if i % m != m - 1: # 오른쪽이 없어서 -m해야 하는데 그럼 잘못된 값이 나옴
-            dp[i + 1] = max(dp[i + 1], dp[i] + arr[i + 1])
+    dp = []
+    i = 0
+    while i < n * m:
+        dp.append(arr[i : i + m])
+        i += m
 
-            if i - n >= 0:
-                dp[i - n] = max(dp[i - n], dp[i] + arr[i - n])
+    for j in range(1, m):
+        for i in range(n):
 
-            if i + m + 1 < m * n:
-                dp[i + m + 1] = max(dp[i + m + 1], dp[i] + arr[i + m + 1])
-    print(dp[n * m - 1])
+            # 왼쪽 위
+            if i == 0:
+                left_up = 0
+            else:
+                left_up = dp[i - 1][j - 1]
+
+            # 왼쪽
+            left = dp[i][j - 1]
+
+            # 왼쪽 아래
+            if i == n - 1:
+                left_down = 0
+            else:
+                left_down = dp[i + 1][j - 1]
+
+            dp[i][j] += max([left, left_down, left_up])
+
+    # 마지막 column 돌면서 가장 큰 수 찾기
+    answer = 0
+    for i in range(n):
+        answer = max(answer, dp[i][m - 1])
+
+    print(answer)
 
 
 
-
-
+2
+3 4
+1 3 3 2 2 1 4 1 0 6 4 7
+4 4
+1 3 1 5 2 2 4 1 5 0 2 3 0 6 1 2
