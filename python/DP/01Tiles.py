@@ -2,7 +2,9 @@
 # fibonacci sequence
 
 n = int(input())
-dp = [1] * (n + 1)
+# dp = [0] * (n + 1) 이렇게 하면 n = 1일때 Index Out of Bounds exception @dp[2] =2
+dp = [0] * 1000001
+dp[1] = 1
 dp[2] = 2
 
 for i in range(3, n + 1):
