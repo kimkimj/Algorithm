@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b50f433-c867-489d-adcf-943860015659" name="Changes" comment="[백준] RGB거리">
+      <change afterPath="$PROJECT_DIR$/python/DP/01Tiles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/DP/PadovanSequence.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/DP/sumOftheRest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/Backtracking/nAndM.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/Backtracking/nAndM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/programmersLvl2/clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/programmersLvl2/clothes.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2SsI0WDnvQHfeFUu8jSNDW1sjnJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ktayl/git/Algorithm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b50f433-c867-489d-adcf-943860015659" name="Changes" comment="" />
+      <created>1689928638669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689928638669</updated>
+    </task>
+    <task id="LOCAL-00001" summary="[백준] 구간 합 구하기 5 *">
+      <created>1690155252830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690155252830</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[백준] 구간 합 구하기 5 *">
+      <created>1690155330468</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690155330468</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[백준] 연속 부분 수열 합의 개수 *">
+      <created>1690156883966</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690156883966</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[프로그래머스] H-index">
+      <created>1690159031107</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690159031107</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[프로그래머스] 달리기 경주">
+      <created>1690286991689</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690286991689</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[프로그래머스] 롤케이크 자르기">
+      <created>1690290661928</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690290661928</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[이코테] 금광">
+      <created>1690293203842</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690293203842</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[프로그래머스] 위장 *">
+      <created>1690421419755</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690421419755</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[프로그래머스] 의상 *">
+      <created>1690421429217</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690421429217</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[백준] 1 만들기">
+      <created>1690758524409</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690758524409</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[백준] 정수 삼각형">
+      <created>1690762588163</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690762588163</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[백준] RGB거리">
+      <created>1690765344123</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690765344123</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[백준] RGB거리">
+      <created>1690766089967</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690766089967</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[백준] 구간 합 구하기 5 *" />
+    <MESSAGE value="[백준] 연속 부분 수열 합의 개수 *" />
+    <MESSAGE value="[프로그래머스] H-index" />
+    <MESSAGE value="[프로그래머스] 달리기 경주" />
+    <MESSAGE value="[프로그래머스] 롤케이크 자르기" />
+    <MESSAGE value="[이코테] 금광" />
+    <MESSAGE value="[프로그래머스] 위장 *" />
+    <MESSAGE value="[프로그래머스] 의상 *" />
+    <MESSAGE value="[백준] 1 만들기" />
+    <MESSAGE value="[백준] 정수 삼각형" />
+    <MESSAGE value="[백준] RGB거리" />
+    <option name="LAST_COMMIT_MESSAGE" value="[백준] RGB거리" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/etc/cumulativeSum5.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/programmersLvl2/hIndex.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/programmersLvl1/race.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/DP/goldmine.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/programmersLvl2/clothes.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/DP/sumOftheRest.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/DP/triangle.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python/DP/RGB.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
