@@ -1,20 +1,15 @@
+from collections import Counter
+
 def solution(want, number, discount):
     wishlist = {}
+    for i in range(len(want)):
+        wishlist[want[i]] = number[i]
+
     days = 0
     for start_day in range(len(discount) - 10 + 1):
-        for i in range(len(want)):
-            wishlist[want[i]] = number[i]
-
-        can_be_added = True
-        for i in range(start_day, start_day + 10):
-            if discount[i] not in wishlist or wishlist[discount[i]] - 1 < 0:
-                can_be_added = False
-                break
-            else:
-                wishlist[discount[i]] -= 1
-
-        if can_be_added:
+        if wishlist == Counter(discount[start_day: start_day + 10]):
             days += 1
+
     return days
 
 want = ["banana", "apple", "rice", "pork", "pot"]
