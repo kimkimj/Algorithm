@@ -7,7 +7,7 @@ def solution(want, number, discount):
 
     days = 0
     for start_day in range(len(discount) - 10 + 1):
-        if wishlist == Counter(discount[start_day: start_day + 10]):
+        if wishlist == Counter(discount[start_day: start_day + 10]): #key point
             days += 1
 
     return days
