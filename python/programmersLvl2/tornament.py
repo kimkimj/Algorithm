@@ -1,11 +1,11 @@
 import math
 # https://eunhee-programming.tistory.com/145
 def solution(n,a,b):
-    answer = 0
-    while True:
-        a = math.ceil(a / 2)
-        b = math.ceil(b / 2)
-        answer += 1
-        if a == b:
-            break
-    return answer
+    count = 0
+    while a != b:
+        a = (a + 1) // 2
+        b = (b + 1) // 2
+        count += 1
+    return count
+
+print(solution(8, 4, 7))
