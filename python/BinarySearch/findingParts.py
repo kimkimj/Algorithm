@@ -2,31 +2,32 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-arr = list(map(int, input().split()))
-arr.sort()
+parts = list(map(int, input().split()))
+parts.sort()
 
 m = int(input())
 req = list(map(int, input().split()))
 
-
-for target in req:
+for i in range(m):
     found = False
+    target = req[i]
     start = 0
-    end = len(arr) - 1
-    while start <= end:
+    end = n - 1
+    while start <= end and not found:
         mid = (start + end) // 2
-        if arr[mid] == target:
-            found = True
-            break
 
-        elif arr[mid] > target:
+        if parts[mid] < target:
+            start = mid + 1
+
+        elif parts[mid] > target:
             end = mid - 1
 
         else:
-            start = mid + 1
+            found = True
 
     if found:
         print("yes")
     else:
         print("no")
+
 
