@@ -1,13 +1,22 @@
+from collections import deque
+
 def solution(order):
-    prev = order[0] + 1
+    order = deque(order)
     count = 0
-    for o in order:
-        if o != prev - 1:
-            break
-        else:
+    stack = []
+
+    for i in range(1, len(order) + 1):
+        if i == order[0]:
+            order.popleft()
             count += 1
-            prev = o
+            while len(stack) > 0 and order[0] == stack[-1]:
+                order.popleft()
+                stack.pop()
+                count += 1
+        else:
+            stack.append(i)
     return count
 
-order = [1, 2, 3]
+
+order = [1,2,4,5,3,6]
 print(solution(order))
