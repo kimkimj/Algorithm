@@ -6,19 +6,18 @@ def solution(files):
     for i in range(len(files)):
         f = files[i]
         parts = re.split("(\d+)", f)
-        head = parts[0]
+        head = parts[0].lower()
         num = int(parts[1])
-        tail = ""
-        for k in range(2, len(parts)):
-            tail += parts[k]
 
-        dict[f] = [head, num, tail, i]
+        dict[f] = [head, num, i]
 
     files.sort()
     for i in range(1, len(files)):
         current = files[i]
         head = dict[current][0]
-        for j in range(1, i):
+
+        current_index = i
+        for j in range(1, i + 1):
             prev = files[i - j]
             prev_head = dict[prev][0]
             if prev_head != head:
@@ -29,24 +28,22 @@ def solution(files):
             if num > prev_num:
                 break
 
-            tail = dict[current][2]
-            prev_tail = dict[prev][2]
-            if num < prev_num or (num == prev_num and tail < prev_tail):
-                files[i - 1] = f
-                files[i] = prev
+           ## source of error. how to switch the two
+            if num < prev_num:
+                files[i - j] = current
+                files[current_index] = prev
 
-            elif num == prev_num and tail == prev_tail:
-                current_org_index = dict[current][3]
-                prev_org_index = dict[prev][3]
+            elif num == prev_num:
+                current_org_index = dict[current][2]
+                prev_org_index = dict[prev][2]
                 if current_org_index < prev_org_index:
-                    files[i - 1] = f
-                    files[i] = prev
+                    files[i - j] = current
+                    files[current_index] = prev
+            current_index -= 1
     return files
 
 files = ["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]
 print(solution(files))
-
-
 
 
 
