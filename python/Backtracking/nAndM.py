@@ -1,16 +1,15 @@
 n, m = map(int, input().split())
 comb = []
 
-def recur():
+def dfs():
     if len(comb) == m:
-        print(' '.join(map(str, comb)))
-        return
+        print(*comb)
 
-    for i in range(1, n + 1):
+    for i in range(1, n+ 1):
         if i not in comb:
             comb.append(i)
-            recur()
+            dfs()
             comb.pop()
 
-recur()
 
+dfs()
