@@ -1,17 +1,9 @@
-import math
-def solution(storey):
-    total = 0
-    storey *= 10
-    while storey > 0:
-        storey *= 0.1
-        up = math.ceil(storey * 0.1 ) * 10
-        down = math.floor(storey * 0.1) * 10
-        if (up - storey) < (storey - down):
-            total += (up - storey)
-            storey = up
-        else:
-            total += (storey - down)
-            storey = down
 
-    return total
+# https://velog.io/@isayaksh/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Programmers-%EB%A7%88%EB%B2%95%EC%9D%98-%EC%97%98%EB%A6%AC%EB%B2%A0%EC%9D%B4%ED%84%B0-Python
+# key:만약 현재 자릿값이 5 에 해당한다면 다음 자릿값에 따라 이동하는 방향을 정할 수 있다.
+# 3-1. 만약 다음 자릿값이 5 ~ 9에 해당한다면 현재 자릿값을 10 에 도달하는 방향으로 마법의 돌을 사용한다.
+# 3-2. 만약 다음 자릿값이 0 ~ 4에 해당한다면 현재 자릿값을 0 에 도달하는 방향으로 마법의 돌을 사용한다.
 
+
+# 다음 자릿값이 5일때는 무조건 올려줘야 한다.
+# 왜냐하면 455일때는 상관 없지만 755같이 다다음 자릿값이 올림을 해줘야하는 값이라면 다음 자리의 5의 반올림이 중요하다
